@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  aaveg19backend:
+    container_name: aaveg19backend
+    build: .
+    ports:
+      - "8090:3000"
+    depends_on:
+      - db
+    links:
+      - "db"
+  db:
+    container_name: aaveg19mongo
+    build: db
+    volumes:
+      - ./db/backup:/data/db

@@ -28,7 +28,12 @@ app.engine('ejs', engine)
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
-mongoose.connect(config.dbURI)
+try{
+  mongoose.connect(config.dbURI, {useNewUrlParser: true})
+} catch(err) {
+  console.log("#######Mongo Connection Error #######");
+  console.log(err);
+}
 
 app.use(
   session({

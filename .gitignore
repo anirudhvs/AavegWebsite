@@ -3,4 +3,5 @@ config/config.js
 npm-debug.log*
 logs/*
 .vscode/*
+db/backup
 
